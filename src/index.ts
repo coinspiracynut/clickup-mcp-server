@@ -46,7 +46,9 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { ClickUpService } from "./services/clickup.js";
 import { ClickUpRelationshipsService } from "./services/clickup-relationships.js";
+import { ClickUpChecklistsService } from "./services/clickup-checklists.js";
 import { relationshipTools, handleRelationshipTool } from "./services/clickup-tools-integration.js";
+import { checklistTools, handleChecklistTool } from "./services/clickup-checklists-integration.js";
 import config from "./config.js";
 import {
   CreateTaskData,
@@ -62,6 +64,7 @@ import {
 // Initialize ClickUp services
 const clickup = ClickUpService.initialize(config.clickupApiKey, config.clickupTeamId);
 const clickupRelationships = ClickUpRelationshipsService.initialize(config.clickupApiKey, config.clickupTeamId);
+const clickupChecklists = ClickUpChecklistsService.initialize(config.clickupApiKey, config.clickupTeamId);
 
 /**
  * Create an MCP server with capabilities for tools and prompts.
@@ -87,8 +90,9 @@ const server = new Server(
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
-      // Include relationship tools
+      // Include relationship and checklist tools
       ...relationshipTools,
+      ...checklistTools,
       {
         name: "get_workspace_hierarchy",
         description: "Retrieve the complete ClickUp workspace hierarchy, including all spaces, folders, and lists with their IDs, names, and hierarchical paths. Call this tool only when you need to discover the workspace structure and don't already have this information from recent context. Avoid using for repeated lookups of the same information.",
@@ -1583,7 +1587,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      // Check if this is a relationship tool
+      // Check if this is a relationship or checklist tool
       default:
         // Check if this is a relationship tool
         if (relationshipTools.some(tool => tool.name === request.params.name)) {
@@ -1600,6 +1604,23 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             }]
           };
         }
+
+        // Check if this is a checklist tool
+        if (checklistTools.some(tool => tool.name === request.params.name)) {
+          // Handle checklist tool
+          const result = await handleChecklistTool(
+            request.params.name,
+            request.params.arguments,
+            clickupChecklists
+          );
+          return {
+            content: [{
+              type: "text",
+              text: JSON.stringify(result, null, 2)
+            }]
+          };
+        }
+
         throw new Error(`Unknown tool: ${request.params.name}`);
     }
   } catch (error) {

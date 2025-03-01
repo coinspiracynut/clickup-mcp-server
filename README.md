@@ -6,7 +6,9 @@ This is an enhanced version of the [ClickUp MCP Server](https://github.com/TaazK
 
 This fork adds new features and improves the architecture of the original ClickUp MCP Server:
 
-### New Features: Task Relationships API Support
+### New Features
+
+#### Task Relationships API Support
 
 - **Task Dependencies**: Create and manage dependencies between tasks
   - Add dependencies to establish which tasks must be completed before others
@@ -26,6 +28,19 @@ This fork adds new features and improves the architecture of the original ClickU
   - Chat View Comments: Add and retrieve comments in chat views
   - Threaded Comments: Support for comment threads and replies
   - Comment Operations: Update and delete comments
+
+#### Checklists API Support
+
+- **Task Checklists**: Create and manage checklists on tasks
+  - Create checklists to organize subtasks or steps
+  - Edit checklist names and reorder them
+  - Delete checklists when no longer needed
+
+- **Checklist Items**: Manage individual items within checklists
+  - Create checklist items for specific steps or subtasks
+  - Edit items to update names, assignments, or completion status
+  - Support for nested checklist items (parent-child relationships)
+  - Delete checklist items when completed or no longer relevant
 
 ### Architectural Improvements
 
