@@ -51,7 +51,7 @@ This server can be used with AI assistants that support the Model Context Protoc
 ## Credits
 
 - Original implementation by [TaazKareem](https://github.com/TaazKareem)
-- Enhanced with relationship APIs by [Your Name/Username]
+- Enhanced with relationship APIs by [v4lheru](https://github.com/v4lheru)
 
 ## License
 
