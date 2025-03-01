@@ -1,6 +1,6 @@
 {
   "name": "@taazkareem/clickup-mcp-server",
-  "version": "0.4.58",
+  "version": "0.4.59",
   "description": "ClickUp MCP Server - Integrate ClickUp tasks with AI through Model Context Protocol",
   "type": "module",
   "main": "build/index.js",
@@ -19,7 +19,6 @@
     "start": "node build/index.js",
     "dev": "tsc -w",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
