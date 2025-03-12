@@ -2,6 +2,10 @@
 
 This is an enhanced version of the [ClickUp MCP Server](https://github.com/TaazKareem/clickup-mcp-server) originally created by [TaazKareem](https://github.com/TaazKareem).
 
+<a href="https://glama.ai/mcp/servers/4tcfjbyxq4">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/4tcfjbyxq4/badge" alt="ClickUp Server MCP server" />
+</a>
+
 ## Enhancements and Architectural Improvements
 
 This fork adds new features and improves the architecture of the original ClickUp MCP Server:
