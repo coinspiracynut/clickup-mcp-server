@@ -223,8 +223,8 @@ Initiate your task now.
 ## Credits
 
 - Original implementation by [TaazKareem](https://github.com/TaazKareem)
-- Enhanced with relationship APIs by [v4lheru](https://github.com/v4lheru)
+- Enhanced with relationship APIs by [v4lheru](https://github.com/v4lheru) 
 
 ## License
 
-This project is licensed under the MIT License - see the [[LICENSE](LICENSE)](https://github.com/v4lheru/clickup-mcp-server/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [[LICENSE](https://github.com/v4lheru/clickup-mcp-server/blob/main/LICENSE)] file for details.
