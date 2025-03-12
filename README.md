@@ -227,4 +227,4 @@ Initiate your task now.
 
 ## License
 
-This project is licensed under the terms of the original repository's license.
+This project is licensed under the MIT License - see the [[LICENSE](LICENSE)](https://github.com/v4lheru/clickup-mcp-server/blob/main/LICENSE) file for details.
